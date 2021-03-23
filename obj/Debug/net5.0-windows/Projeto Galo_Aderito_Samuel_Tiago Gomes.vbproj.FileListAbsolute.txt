@@ -1,0 +1,20 @@
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.exe
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.deps.json
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.runtimeconfig.json
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.runtimeconfig.dev.json
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.dll
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\ref\Projeto Galo_Aderito_Samuel_Tiago Gomes.dll
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\bin\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.pdb
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbprojAssemblyReference.cache
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Form1.resources
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj.GenerateResource.cache
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.AssemblyInfoInputs.cache
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.AssemblyInfo.vb
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj.CoreCompileInputs.cache
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.dll
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\ref\Projeto Galo_Aderito_Samuel_Tiago Gomes.dll
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.pdb
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.genruntimeconfig.cache
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Resources.resources
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Menu.resources

@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Users\\Samuel\\Documents\\Escola\\Nuno Godinho - Estrutura de Dados\\VB\\Projeto Galo_Aderito_Samuel_Tiago Gomes\\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj": {}
+  },
+  "projects": {
+    "D:\\Users\\Samuel\\Documents\\Escola\\Nuno Godinho - Estrutura de Dados\\VB\\Projeto Galo_Aderito_Samuel_Tiago Gomes\\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Samuel\\Documents\\Escola\\Nuno Godinho - Estrutura de Dados\\VB\\Projeto Galo_Aderito_Samuel_Tiago Gomes\\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj",
+        "projectName": "Projeto Galo_Aderito_Samuel_Tiago Gomes",
+        "projectPath": "D:\\Users\\Samuel\\Documents\\Escola\\Nuno Godinho - Estrutura de Dados\\VB\\Projeto Galo_Aderito_Samuel_Tiago Gomes\\Projeto Galo_Aderito_Samuel_Tiago Gomes.vbproj",
+        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Samuel\\Documents\\Escola\\Nuno Godinho - Estrutura de Dados\\VB\\Projeto Galo_Aderito_Samuel_Tiago Gomes\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
