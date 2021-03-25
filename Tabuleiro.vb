@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class Tabuleiro
 
     '=========================================================================================================================='
 
@@ -7,7 +7,7 @@
     '         - tabuleiro_matriz    (matriz)    : integer   - Matriz que Indica o Tabuleiro'
     '         - jogador1            (Indicador) : string    - Um indicador do Jogador1 para utilizar ao realizar acoes de jogadores'
     '         - jogador2            (Indicador) : string    - Um indicador do Jogador2 para utilizar ao realizar acoes de jogadores' 
-    '         - jogadorAtual        (jogador)   : jogador   - Uma string que indica um jogador quanto ao seu indicador -- Por Default sera o Jogador 1'
+    '         - jogadorAtual        (jogador)   : jogador   - Uma string que indica um jogador quanto ao seu indicador -- Por Default Ao Iniciar sera o Jogador 1'
     '         - contagem            (Joagadas)  : integer   - Um inteiro para contar o total de Jogadas'
 
     '=========================================================================================================================='
@@ -38,21 +38,17 @@
         End If
     End Sub
 
-
     '=========================================================================================================================='
 
-    'APENAS PARA O PROGRAMADOR'
-    ' ESCREVE LA AS POSICOES DA MATRIZ PREENCHIDAS PARA AJUDAR NA VISUALIZACAO DA MATRIZ
-    Public Sub matriz()
-        testeLbl1.Text = tabuleiro_matriz(0, 0)
-        testeLbl2.Text = tabuleiro_matriz(0, 1)
-        testeLbl3.Text = tabuleiro_matriz(0, 2)
-        testeLbl4.Text = tabuleiro_matriz(1, 0)
-        testeLbl5.Text = tabuleiro_matriz(1, 1)
-        testeLbl6.Text = tabuleiro_matriz(1, 2)
-        testeLbl7.Text = tabuleiro_matriz(2, 0)
-        testeLbl8.Text = tabuleiro_matriz(2, 1)
-        testeLbl9.Text = tabuleiro_matriz(2, 2)
+    ' Esta Funcao é utilizada para realizar cada "Jogada" efetuada pelo utilizador
+    ' Aqui ira preencher o botao selecionado.
+    ' No final coloca o Botao .Enabled como False assim nao e possivel voltar a selecionalo
+    ' Parametros:
+    '           # sender As Object : Receber Um (sender) do tipo de objeto, este e o objecto que foi selecionado.      
+    Public Sub jogar(sender As Object)
+        sender.BackgroundImage = My.Resources.ResourceManager.GetObject(jogadorAtual)
+        sender.BackgroundImageLayout = ImageLayout.Stretch
+        sender.Enabled = False
     End Sub
 
     '=========================================================================================================================='
@@ -83,6 +79,7 @@
         While i <= 2
             If (tabuleiro_matriz(i, 0) = jogador1 Or tabuleiro_matriz(i, 0) = jogador2) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 1)) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 2)) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
+                ganhar()
             End If
             i += 1
         End While
@@ -96,6 +93,7 @@
         While j <= 2
             If (tabuleiro_matriz(0, j) = jogador1 Or tabuleiro_matriz(0, j) = jogador2) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(1, j)) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(2, j)) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
+                ganhar()
             End If
             j += 1
         End While
@@ -123,6 +121,7 @@
             Next
             If (vencedor) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
+                ganhar()
             End If
         End If
 
@@ -148,6 +147,7 @@
             Next
             If (vencedor) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
+                ganhar()
             End If
         End If
 
@@ -166,15 +166,29 @@
 
     '=========================================================================================================================='
 
-    ' Esta Funcao é utilizada para realizar cada "Jogada" efetuada pelo utilizador
-    ' Aqui ira preencher o botao selecionado.
-    ' No final coloca o Botao .Enabled como False assim nao e possivel voltar a selecionalo
+    ' Esta Funcao é utilizada para Realizar as acoes necessarias quando algum jogador ganha - O jogo acaba
+    ' Aqui ira bloquear a Form do Tabuleiro,sendo assim impossivel continuar a jogar, e mostrar a Frame Da Vitoria
     ' Parametros:
-    '           # sender As Object : Receber Um (sender) do tipo de objeto, este e o objecto que foi selecionado.      
-    Public Sub jogar(sender As Object)
-        sender.BackgroundImage = My.Resources.ResourceManager.GetObject(jogadorAtual)
-        sender.BackgroundImageLayout = ImageLayout.Stretch
-        sender.Enabled = False
+    '           #..    
+    Public Sub ganhar()
+        Me.Hide()
+        Vitoria.Activate()
+        Vitoria.Show()
+    End Sub
+    '=========================================================================================================================='
+    '--------------------------------------------------------------------------------------------------------------------------'
+    'APENAS PARA O PROGRAMADOR'
+    ' ESCREVE LA AS POSICOES DA MATRIZ PREENCHIDAS PARA AJUDAR NA VISUALIZACAO DA MATRIZ
+    Public Sub matriz()
+        testeLbl1.Text = tabuleiro_matriz(0, 0)
+        testeLbl2.Text = tabuleiro_matriz(0, 1)
+        testeLbl3.Text = tabuleiro_matriz(0, 2)
+        testeLbl4.Text = tabuleiro_matriz(1, 0)
+        testeLbl5.Text = tabuleiro_matriz(1, 1)
+        testeLbl6.Text = tabuleiro_matriz(1, 2)
+        testeLbl7.Text = tabuleiro_matriz(2, 0)
+        testeLbl8.Text = tabuleiro_matriz(2, 1)
+        testeLbl9.Text = tabuleiro_matriz(2, 2)
     End Sub
 
     '=========================================================================================================================='
