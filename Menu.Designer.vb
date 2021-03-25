@@ -130,6 +130,7 @@ Partial Class Menu
         Me.Controls.Add(Me.PictureBox6)
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "Menu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Jogo do Galo"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnsair, System.ComponentModel.ISupportInitialize).EndInit()
