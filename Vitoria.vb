@@ -1,5 +1,5 @@
 ﻿Public Class Vitoria
-    Private Sub Voltar_Click(sender As Object, e As EventArgs) Handles Voltar.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles voltar_mn.Click
         Me.Hide()
         Menu.Activate()
         Menu.Show()
