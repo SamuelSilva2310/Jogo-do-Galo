@@ -12,6 +12,23 @@
 
     '=========================================================================================================================='
 
+    Public Sub resetJogo()
+        Dim limpo(2, 2) As String
+        tabuleiro_matriz = limpo
+
+        For Each bt As Button In Me.Controls.OfType(Of Button)()
+            bt.BackgroundImage = Nothing
+            bt.Enabled = True
+        Next
+        jogadorAtual = jogador1
+        jgrAtual_lbl.Text = jogadorAtual
+
+    End Sub
+
+
+    '=========================================================================================================================='
+
+
     ' Esta Funcao é utilizada para Preencher a Matriz com cada "Jogada" efetuada pelo utilizador
     ' Aqui ira Definir na Matriz global cada Jogada na sua posicao conforme o tabuleiro e os botoes
     ' Parametros:
@@ -62,15 +79,6 @@
         'Varias Auxiliares de Verificacao
         Dim i As Integer = 0 'Horizontal
         Dim j As Integer = 0 'Vertical
-
-        'Diagonal
-        Dim k As Integer = 0
-        Dim l As Integer = 0
-
-        'Variaveis Para Verificar vencedor
-        Dim valor As String
-        Dim vencedor As Boolean = False
-
         '''''
 
         'Verificar Horizontalmente todas as Linhas
@@ -105,24 +113,35 @@
         '   Percorre o (k - Linhas) e (l - Colunas), caso (k=l), esteja na diagonal principal
         '   por isso verifica se o (valor - Valor da Primeira posicao da diagonal) é igual à posição atual
         '   Caso sejam todas iguais, o Jogador Ganha
+        '
 
-        If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) Then
-            valor = tabuleiro_matriz(0, 0)
-            For k = 0 To 2
-                For l = 0 To 2
-                    If (k = l) Then
-                        If (valor = tabuleiro_matriz(k, l)) Then
-                            vencedor = True
-                        Else
-                            vencedor = False
-                        End If
-                    End If
-                Next
-            Next
-            If (vencedor) Then
-                vencedorLbl.Text = jogadorAtual + " Venceu!"
-                ganhar()
-            End If
+        'Estava Assim:
+        'If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) Then
+        '    valor = tabuleiro_matriz(0, 0)
+        '    For k = 0 To 2
+        '        For l = 0 To 2
+        '            If (k = l) Then
+        '                If (valor = tabuleiro_matriz(k, l)) Then
+        '                    vencedor = True
+        '                Else
+        '                    vencedor = False
+        '                End If
+        '            End If
+        '        Next
+        '    Next
+        '    If (vencedor) Then
+        '        vencedorLbl.Text = jogadorAtual + " Venceu!"
+        '        ganhar()
+        '    End If
+        'End If
+
+        '-----------------------------------------
+        'Assim e mais eficiente e rapido e simples:
+        '-----------------------------------------
+
+        If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(2, 2)) Then
+            vencedorLbl.Text = jogadorAtual + " Venceu!"
+            ganhar()
         End If
 
         '===============
@@ -132,24 +151,36 @@
         '   Percorre o (k - Linhas) e (l - Colunas), caso ((k + l) = (n - 1) -- (n) - Numero de colunas), esteja na diagonal secundaria
         '   por isso verifica se o (valor - Valor da Primeira posicao da diagonal) é igual à posição atual
         '   Caso sejam todas iguais, o Jogador Ganha
-        If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) Then
-            valor = tabuleiro_matriz(0, 2)
-            For k = 0 To 2
-                For l = 0 To 2
-                    If ((k + l) = (3 - 1)) Then
-                        If (valor = tabuleiro_matriz(k, l)) Then
-                            vencedor = True
-                        Else
-                            vencedor = False
-                        End If
-                    End If
-                Next
-            Next
-            If (vencedor) Then
-                vencedorLbl.Text = jogadorAtual + " Venceu!"
-                ganhar()
-            End If
+        ' Estava Assim:
+
+        'If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) Then
+        '    valor = tabuleiro_matriz(0, 2)
+        '    For k = 0 To 2
+        '        For l = 0 To 2
+        '            If ((k + l) = (3 - 1)) Then
+        '                If (valor = tabuleiro_matriz(k, l)) Then
+        '                    vencedor = True
+        '                Else
+        '                    vencedor = False
+        '                End If
+        '            End If
+        '        Next
+        '    Next
+        '    If (vencedor) Then
+        '        vencedorLbl.Text = jogadorAtual + " Venceu!"
+        '        ganhar()
+        '    End If
+        'End If
+
+        '-----------------------------------------
+        'Assim e mais eficiente e rapido e simples:
+        '-----------------------------------------
+
+        If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(2, 0)) Then
+            vencedorLbl.Text = jogadorAtual + " Venceu!"
+            ganhar()
         End If
+
 
         '===============
         '===============
@@ -168,12 +199,21 @@
 
     ' Esta Funcao é utilizada para Realizar as acoes necessarias quando algum jogador ganha - O jogo acaba
     ' Aqui ira bloquear a Form do Tabuleiro,sendo assim impossivel continuar a jogar, e mostrar a Frame Da Vitoria
+    'Da reset no jogo Tambem e na vitoria mostra o jogador vencedor
     ' Parametros:
     '           #..    
     Public Sub ganhar()
         Me.Hide()
+
+        If jogadorAtual = jogador1 Then
+            Vitoria.player_lbl.Text = "Jogador 1"
+        Else
+            Vitoria.player_lbl.Text = "Jogador 2"
+        End If
+        resetJogo()
         Vitoria.Activate()
         Vitoria.Show()
+
     End Sub
     '=========================================================================================================================='
     '--------------------------------------------------------------------------------------------------------------------------'
@@ -210,16 +250,14 @@
         jogar(sender)
         matriz()
         verificar()
-
-
-
     End Sub
 
     '=========================================================================================================================='
 
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Tabuleiro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         jgrAtual_lbl.Text = jogadorAtual
     End Sub
 

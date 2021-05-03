@@ -256,7 +256,7 @@ Partial Class Tabuleiro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(764, 442)
+        Me.ClientSize = New System.Drawing.Size(764, 441)
         Me.Controls.Add(Me.vencedorLbl)
         Me.Controls.Add(Me.testeLbl9)
         Me.Controls.Add(Me.testeLbl8)
