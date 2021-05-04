@@ -19,3 +19,4 @@ D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Ga
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Menu.resources
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Tabuleiro.resources
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Vitoria.resources
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Form1.resources

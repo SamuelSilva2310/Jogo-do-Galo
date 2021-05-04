@@ -95,7 +95,7 @@
         '===============
         '===============
 
-        'Verificar Verticalmente todas as Linhas
+        'Verificar Verticalmente todas as Colunas
         '   Percorre o (j) que simboliza cada coluna e verifica se o valor de cada posicao e igual
         '   Caso seja, o Jogador Ganha
         While j <= 2
@@ -250,6 +250,16 @@
         jogar(sender)
         matriz()
         verificar()
+
+        'Depois Joga O Bot
+        If AI Then
+            novaPosicaoAI(melhorJogada(tabuleiro_matriz))
+            matriz()
+            verificar()
+        End If
+
+
+
     End Sub
 
     '=========================================================================================================================='
@@ -257,9 +267,188 @@
 
 
     Private Sub Tabuleiro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         jgrAtual_lbl.Text = jogadorAtual
     End Sub
+
+    '=========================================================================================================================='
+    '=========================================================================================================================='
+    'FUNCOES UTILIZADAS PELO AI
+    '=========================================================================================================================='
+    '=========================================================================================================================='
+
+    'JOGAR'
+    '-----
+    'novaPosicaoAI
+    Private Sub novaPosicaoAI(pos As Array)
+        tabuleiro_matriz(pos(0), pos(1)) = jogadorAtual
+    End Sub
+
+    'EVALUATE
+    ' Esta Funcao é chamada quando for necessaria realizar uma jogada pelo computador,
+    ' Esta Avalia o quadro e se alguem ganhou devolve 10 se for vantajoso ou -10 de for o adversario, se ninguem ganhou devolve 0
+    ' Parametros:
+    '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
+
+
+    Private Function avaliar(tabuleiro As Array) As Integer
+        Dim i As Integer
+
+        'Check Rows
+        For i = 0 To 2
+            If (tabuleiro(i, 0) = jogador1 Or tabuleiro(i, 0) = jogador2) And tabuleiro(i, 0) = tabuleiro(i, 1) And tabuleiro(i, 0) = tabuleiro(i, 2) Then
+                If jogadorAtual = jogador2 Then
+                    Return 10
+                Else
+                    Return -10
+                End If
+            End If
+            Continue For
+        Next
+
+        'Check Collumns
+        For i = 0 To 2
+            If (tabuleiro(0, i) = jogador1 Or tabuleiro(0, i) = jogador2) And tabuleiro(0, i) = tabuleiro(1, i) And tabuleiro(0, i) = tabuleiro(2, i) Then
+                Continue For
+            End If
+            If jogadorAtual = jogador2 Then
+                Return 10
+            Else
+                Return -10
+            End If
+        Next
+
+        'Check Diagonal
+        If (tabuleiro(0, 0) = jogador1 Or tabuleiro(0, 0) = jogador2) And (tabuleiro(0, 0) = tabuleiro(1, 1)) And (tabuleiro(0, 0) = tabuleiro(2, 2)) Then
+            If jogadorAtual = jogador2 Then
+                Return 10
+            Else
+                Return -10
+            End If
+        End If
+
+        'Check Secondary Diagonal
+        If (tabuleiro(0, 2) = jogador1 Or tabuleiro(0, 2) = jogador2) And (tabuleiro(0, 2) = tabuleiro_matriz(1, 1)) And (tabuleiro(0, 2) = tabuleiro_matriz(2, 0)) Then
+            If jogadorAtual = jogador2 Then
+                Return 10
+            Else
+                Return -10
+            End If
+        End If
+
+        Return 0
+
+    End Function
+
+
+    '=========================================================================================================================='
+    '   jogadasDisponiveis
+    ' Esta Funcao é chamada quando for necessaria uma verificacao se existem jogadas disponiveis,
+    ' Parametros:
+    '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
+    Private Function jogadasDisponiveis(tabuleiro As Array) As Boolean
+        Dim i As Integer
+        For i = 0 To 2
+            If tabuleiro(i, 0) <> jogador1 Or tabuleiro(i, 0) <> jogador2 Or
+               tabuleiro(i, 1) <> jogador1 Or tabuleiro(i, 1) <> jogador2 Or
+               tabuleiro(i, 2) <> jogador1 Or tabuleiro(i, 2) <> jogador2 Then
+
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+
+
+    '=========================================================================================================================='
+
+    ' Esta Funcao impoementa o famoso algoritmo Minimax, este avalia todas as possibilidades e degvolve a melhor escolha
+    ' 
+    ' Parametros:
+    '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
+    '           # depth     : a profundidade com que op algoritmo ja percorreu
+    '           # isMax     : um boolean que identifica se 
+    Private Function minimax(tabuleiro As Array, depth As Integer, isMax As Boolean) As Integer
+        Dim score = avaliar(tabuleiro)
+
+        'Se o jogo ja terminou,
+        'Ganhou o computador, 
+        'Ganhou o Jogador,
+        'Nao existem mais jogadas, Empatou
+        If score = 10 Then
+            Return score
+        ElseIf score = -10 Then
+            Return score
+
+        ElseIf Not jogadasDisponiveis(tabuleiro) Then
+            Return 0
+        End If
+
+        If isMax Then
+            Dim best = -1000
+            Dim i, j As Integer
+
+            For i = 0 To 2
+                For j = 0 To 2
+                    If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                        tabuleiro(i, j) = jogador2
+                        best = Math.Max(best, minimax(tabuleiro, depth + 1, Not isMax))
+
+                        tabuleiro(i, j) = Nothing
+                    End If
+                Next
+            Next
+            Return best
+
+        Else
+            Dim best = 1000
+            Dim i, j As Integer
+
+            For i = 0 To 2
+                For j = 0 To 2
+                    If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                        tabuleiro(i, j) = jogador1
+                        best = Math.Min(best, minimax(tabuleiro, depth + 1, Not isMax))
+
+                        tabuleiro(i, j) = Nothing
+                    End If
+                Next
+            Next
+            Return best
+
+
+        End If
+    End Function
+
+    '=========================================================================================================================='
+    'Esta Funcao serve para Encontrar a melhor jogada para o AI
+    ' Parametros:
+    '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
+    Private Function melhorJogada(tabuleiro As Array) As Array
+        Dim bestVal = -1000
+        Dim bestMove(1) As Integer
+        Dim moveVal
+        Dim i, j As Integer
+
+        For i = 0 To 2
+            For j = 0 To 2
+                If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                    tabuleiro(i, j) = jogador2
+                    moveVal = minimax(tabuleiro, 0, False)
+                    tabuleiro(i, j) = Nothing
+
+                    If moveVal > bestVal Then
+                        bestMove(0) = i
+                        bestMove(1) = j
+                        bestVal = moveVal
+                    End If
+                End If
+            Next
+        Next
+        Return bestMove
+
+    End Function
+
 
 
 End Class
