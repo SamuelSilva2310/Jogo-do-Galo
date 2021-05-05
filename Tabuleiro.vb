@@ -15,6 +15,7 @@
     Public Sub resetJogo()
         Dim limpo(2, 2) As String
         tabuleiro_matriz = limpo
+        tabuleiro_matriz_AI = limpo
 
         For Each bt As Button In Me.Controls.OfType(Of Button)()
             bt.BackgroundImage = Nothing
@@ -36,22 +37,32 @@
     Public Sub novaPosicao(nomeBotao As String)
         If nomeBotao = Button1.Name Then
             tabuleiro_matriz(0, 0) = jogadorAtual
+            tabuleiro_matriz_AI(0, 0) = jogadorAtual
+
         ElseIf nomeBotao = Button2.Name Then
             tabuleiro_matriz(0, 1) = jogadorAtual
+            tabuleiro_matriz_AI(0, 1) = jogadorAtual
         ElseIf nomeBotao = Button3.Name Then
             tabuleiro_matriz(0, 2) = jogadorAtual
+            tabuleiro_matriz_AI(0, 2) = jogadorAtual
         ElseIf nomeBotao = Button4.Name Then
             tabuleiro_matriz(1, 0) = jogadorAtual
+            tabuleiro_matriz_AI(1, 0) = jogadorAtual
         ElseIf nomeBotao = Button5.Name Then
             tabuleiro_matriz(1, 1) = jogadorAtual
+            tabuleiro_matriz_AI(1, 1) = jogadorAtual
         ElseIf nomeBotao = Button6.Name Then
             tabuleiro_matriz(1, 2) = jogadorAtual
+            tabuleiro_matriz_AI(1, 2) = jogadorAtual
         ElseIf nomeBotao = Button7.Name Then
             tabuleiro_matriz(2, 0) = jogadorAtual
+            tabuleiro_matriz_AI(2, 0) = jogadorAtual
         ElseIf nomeBotao = Button8.Name Then
             tabuleiro_matriz(2, 1) = jogadorAtual
+            tabuleiro_matriz_AI(2, 1) = jogadorAtual
         ElseIf nomeBotao = Button9.Name Then
             tabuleiro_matriz(2, 2) = jogadorAtual
+            tabuleiro_matriz_AI(2, 2) = jogadorAtual
         End If
     End Sub
 
@@ -88,6 +99,7 @@
             If (tabuleiro_matriz(i, 0) = jogador1 Or tabuleiro_matriz(i, 0) = jogador2) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 1)) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 2)) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
                 ganhar()
+                Return
             End If
             i += 1
         End While
@@ -218,7 +230,7 @@
     '=========================================================================================================================='
     '--------------------------------------------------------------------------------------------------------------------------'
     'APENAS PARA O PROGRAMADOR'
-    ' ESCREVE LA AS POSICOES DA MATRIZ PREENCHIDAS PARA AJUDAR NA VISUALIZACAO DA MATRIZ
+    ' ESCREVE AS POSICOES DA MATRIZ PREENCHIDAS PARA AJUDAR NA VISUALIZACAO DA MATRIZ
     Public Sub matriz()
         testeLbl1.Text = tabuleiro_matriz(0, 0)
         testeLbl2.Text = tabuleiro_matriz(0, 1)
@@ -248,16 +260,18 @@
 
         novaPosicao(nomeBotao)
         jogar(sender)
-        matriz()
         verificar()
 
         'Depois Joga O Bot
         If AI Then
-            novaPosicaoAI(melhorJogada(tabuleiro_matriz))
-            matriz()
+            Dim t As Integer() = melhorJogada(tabuleiro_matriz)
+            tabuleiro_matriz_AI = tabuleiro_matriz
+            novaPosicaoAI(t)
             verificar()
         End If
 
+
+        matriz()
 
 
     End Sub
@@ -279,8 +293,50 @@
     'JOGAR'
     '-----
     'novaPosicaoAI
-    Private Sub novaPosicaoAI(pos As Array)
-        tabuleiro_matriz(pos(0), pos(1)) = jogadorAtual
+    Private Sub novaPosicaoAI(p As Integer()) 'pos As Array
+        tabuleiro_matriz(p(0), p(1)) = jogador2
+        jogarAI(p(0), p(1))
+    End Sub
+
+    Private Sub jogarAI(l As Integer, c As Integer)
+        If l = 0 And c = 0 Then
+            Button1.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button1.BackgroundImageLayout = ImageLayout.Stretch
+            Button1.Enabled = False
+        ElseIf l = 0 And c = 1 Then
+            Button2.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button2.BackgroundImageLayout = ImageLayout.Stretch
+            Button2.Enabled = False
+        ElseIf l = 0 And c = 2 Then
+            Button3.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button3.BackgroundImageLayout = ImageLayout.Stretch
+            Button3.Enabled = False
+        ElseIf l = 1 And c = 0 Then
+            Button4.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button4.BackgroundImageLayout = ImageLayout.Stretch
+            Button4.Enabled = False
+        ElseIf l = 1 And c = 1 Then
+            Button5.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button5.BackgroundImageLayout = ImageLayout.Stretch
+            Button5.Enabled = False
+        ElseIf l = 1 And c = 2 Then
+            Button6.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button6.BackgroundImageLayout = ImageLayout.Stretch
+            Button6.Enabled = False
+        ElseIf l = 2 And c = 0 Then
+            Button7.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button7.BackgroundImageLayout = ImageLayout.Stretch
+            Button7.Enabled = False
+        ElseIf l = 2 And c = 1 Then
+            Button8.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button8.BackgroundImageLayout = ImageLayout.Stretch
+            Button8.Enabled = False
+        ElseIf l = 2 And c = 2 Then
+            Button9.BackgroundImage = My.Resources.ResourceManager.GetObject(jogador2)
+            Button9.BackgroundImageLayout = ImageLayout.Stretch
+            Button9.Enabled = False
+        End If
+
     End Sub
 
     'EVALUATE
@@ -327,7 +383,7 @@
         End If
 
         'Check Secondary Diagonal
-        If (tabuleiro(0, 2) = jogador1 Or tabuleiro(0, 2) = jogador2) And (tabuleiro(0, 2) = tabuleiro_matriz(1, 1)) And (tabuleiro(0, 2) = tabuleiro_matriz(2, 0)) Then
+        If (tabuleiro(0, 2) = jogador1 Or tabuleiro(0, 2) = jogador2) And (tabuleiro(0, 2) = tabuleiro(1, 1)) And (tabuleiro(0, 2) = tabuleiro(2, 0)) Then
             If jogadorAtual = jogador2 Then
                 Return 10
             Else
@@ -385,12 +441,12 @@
         End If
 
         If isMax Then
-            Dim best = -1000
+            Dim best As Integer = -1000
             Dim i, j As Integer
 
             For i = 0 To 2
                 For j = 0 To 2
-                    If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                    If tabuleiro(i, j) <> jogador1 And tabuleiro(i, j) <> jogador2 Then
                         tabuleiro(i, j) = jogador2
                         best = Math.Max(best, minimax(tabuleiro, depth + 1, Not isMax))
 
@@ -401,16 +457,16 @@
             Return best
 
         Else
-            Dim best = 1000
+            Dim best As Integer = 1000
             Dim i, j As Integer
 
             For i = 0 To 2
                 For j = 0 To 2
-                    If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                    If tabuleiro(i, j) <> jogador1 And tabuleiro(i, j) <> jogador2 Then
                         tabuleiro(i, j) = jogador1
                         best = Math.Min(best, minimax(tabuleiro, depth + 1, Not isMax))
 
-                        tabuleiro(i, j) = Nothing
+                        tabuleiro(i, j) = ""
                     End If
                 Next
             Next
@@ -423,8 +479,10 @@
     '=========================================================================================================================='
     'Esta Funcao serve para Encontrar a melhor jogada para o AI
     ' Parametros:
-    '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
-    Private Function melhorJogada(tabuleiro As Array) As Array
+    '           # tabuleiro : o tabuleiro 
+    Private Function melhorJogada(tabuleiro As Array) As Integer()
+
+
         Dim bestVal = -1000
         Dim bestMove(1) As Integer
         Dim moveVal
@@ -432,7 +490,7 @@
 
         For i = 0 To 2
             For j = 0 To 2
-                If tabuleiro(i, j) <> jogador1 Or tabuleiro(i, j) <> jogador2 Then
+                If tabuleiro(i, j) <> jogador1 And tabuleiro(i, j) <> jogador2 Then
                     tabuleiro(i, j) = jogador2
                     moveVal = minimax(tabuleiro, 0, False)
                     tabuleiro(i, j) = Nothing
@@ -448,7 +506,4 @@
         Return bestMove
 
     End Function
-
-
-
 End Class
