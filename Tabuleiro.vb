@@ -15,7 +15,7 @@
     Public Sub resetJogo()
         Dim limpo(2, 2) As String
         tabuleiro_matriz = limpo
-        tabuleiro_matriz_AI = limpo
+        contagem = 0
 
         For Each bt As Button In Me.Controls.OfType(Of Button)()
             bt.BackgroundImage = Nothing
@@ -37,32 +37,32 @@
     Public Sub novaPosicao(nomeBotao As String)
         If nomeBotao = Button1.Name Then
             tabuleiro_matriz(0, 0) = jogadorAtual
-            tabuleiro_matriz_AI(0, 0) = jogadorAtual
+
 
         ElseIf nomeBotao = Button2.Name Then
             tabuleiro_matriz(0, 1) = jogadorAtual
-            tabuleiro_matriz_AI(0, 1) = jogadorAtual
+
         ElseIf nomeBotao = Button3.Name Then
             tabuleiro_matriz(0, 2) = jogadorAtual
-            tabuleiro_matriz_AI(0, 2) = jogadorAtual
+
         ElseIf nomeBotao = Button4.Name Then
             tabuleiro_matriz(1, 0) = jogadorAtual
-            tabuleiro_matriz_AI(1, 0) = jogadorAtual
+
         ElseIf nomeBotao = Button5.Name Then
             tabuleiro_matriz(1, 1) = jogadorAtual
-            tabuleiro_matriz_AI(1, 1) = jogadorAtual
+
         ElseIf nomeBotao = Button6.Name Then
             tabuleiro_matriz(1, 2) = jogadorAtual
-            tabuleiro_matriz_AI(1, 2) = jogadorAtual
+
         ElseIf nomeBotao = Button7.Name Then
             tabuleiro_matriz(2, 0) = jogadorAtual
-            tabuleiro_matriz_AI(2, 0) = jogadorAtual
+
         ElseIf nomeBotao = Button8.Name Then
             tabuleiro_matriz(2, 1) = jogadorAtual
-            tabuleiro_matriz_AI(2, 1) = jogadorAtual
+
         ElseIf nomeBotao = Button9.Name Then
             tabuleiro_matriz(2, 2) = jogadorAtual
-            tabuleiro_matriz_AI(2, 2) = jogadorAtual
+
         End If
     End Sub
 
@@ -77,15 +77,17 @@
         sender.BackgroundImage = My.Resources.ResourceManager.GetObject(jogadorAtual)
         sender.BackgroundImageLayout = ImageLayout.Stretch
         sender.Enabled = False
+        contagem += 1
     End Sub
 
     '=========================================================================================================================='
 
     ' Esta Funcao é utilizada para Verificar se algum Jogador Ganhou o Jogo
     ' Aqui ira Verificar a matriz do Tabuleiro e Caso alguem complete uma linha ou uma diagonal entao ira ganhar.
+    'Retorna True se o jogo tiver terminadoe false se nao acabou
     ' Parametros:
     '           #..    
-    Public Sub verificar()
+    Public Function verificar() As Boolean
 
         'Varias Auxiliares de Verificacao
         Dim i As Integer = 0 'Horizontal
@@ -99,7 +101,7 @@
             If (tabuleiro_matriz(i, 0) = jogador1 Or tabuleiro_matriz(i, 0) = jogador2) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 1)) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 2)) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
                 ganhar()
-                Return
+                Return True
             End If
             i += 1
         End While
@@ -114,6 +116,7 @@
             If (tabuleiro_matriz(0, j) = jogador1 Or tabuleiro_matriz(0, j) = jogador2) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(1, j)) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(2, j)) Then
                 vencedorLbl.Text = jogadorAtual + " Venceu!"
                 ganhar()
+                Return True
             End If
             j += 1
         End While
@@ -122,75 +125,28 @@
         '===============
 
         'Verificar A diagonal Principal (da esquerda para a direita)
-        '   Percorre o (k - Linhas) e (l - Colunas), caso (k=l), esteja na diagonal principal
-        '   por isso verifica se o (valor - Valor da Primeira posicao da diagonal) é igual à posição atual
-        '   Caso sejam todas iguais, o Jogador Ganha
-        '
-
-        'Estava Assim:
-        'If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) Then
-        '    valor = tabuleiro_matriz(0, 0)
-        '    For k = 0 To 2
-        '        For l = 0 To 2
-        '            If (k = l) Then
-        '                If (valor = tabuleiro_matriz(k, l)) Then
-        '                    vencedor = True
-        '                Else
-        '                    vencedor = False
-        '                End If
-        '            End If
-        '        Next
-        '    Next
-        '    If (vencedor) Then
-        '        vencedorLbl.Text = jogadorAtual + " Venceu!"
-        '        ganhar()
-        '    End If
-        'End If
-
-        '-----------------------------------------
-        'Assim e mais eficiente e rapido e simples:
-        '-----------------------------------------
 
         If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(2, 2)) Then
             vencedorLbl.Text = jogadorAtual + " Venceu!"
             ganhar()
+            Return True
         End If
 
         '===============
         '===============
 
         'Verificar A diagonal Secundaria (da esquerda para a direita)
-        '   Percorre o (k - Linhas) e (l - Colunas), caso ((k + l) = (n - 1) -- (n) - Numero de colunas), esteja na diagonal secundaria
-        '   por isso verifica se o (valor - Valor da Primeira posicao da diagonal) é igual à posição atual
-        '   Caso sejam todas iguais, o Jogador Ganha
-        ' Estava Assim:
-
-        'If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) Then
-        '    valor = tabuleiro_matriz(0, 2)
-        '    For k = 0 To 2
-        '        For l = 0 To 2
-        '            If ((k + l) = (3 - 1)) Then
-        '                If (valor = tabuleiro_matriz(k, l)) Then
-        '                    vencedor = True
-        '                Else
-        '                    vencedor = False
-        '                End If
-        '            End If
-        '        Next
-        '    Next
-        '    If (vencedor) Then
-        '        vencedorLbl.Text = jogadorAtual + " Venceu!"
-        '        ganhar()
-        '    End If
-        'End If
-
-        '-----------------------------------------
-        'Assim e mais eficiente e rapido e simples:
-        '-----------------------------------------
 
         If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(2, 0)) Then
             vencedorLbl.Text = jogadorAtual + " Venceu!"
             ganhar()
+            Return True
+        End If
+
+        'Empate
+        If contagem = 9 Then
+            empate()
+            Return True
         End If
 
 
@@ -205,7 +161,8 @@
         End If
         jgrAtual_lbl.Text = jogadorAtual
 
-    End Sub
+        Return False
+    End Function
 
     '=========================================================================================================================='
 
@@ -227,6 +184,22 @@
         Vitoria.Show()
 
     End Sub
+
+    Public Sub empate()
+        Me.Hide()
+
+        If jogadorAtual = jogador1 Then
+            Vitoria.player_lbl.Text = "EMPATE"
+        Else
+            Vitoria.player_lbl.Text = "EMPATE"
+        End If
+        resetJogo()
+        Vitoria.Activate()
+        Vitoria.Show()
+
+    End Sub
+
+
     '=========================================================================================================================='
     '--------------------------------------------------------------------------------------------------------------------------'
     'APENAS PARA O PROGRAMADOR'
@@ -260,12 +233,14 @@
 
         novaPosicao(nomeBotao)
         jogar(sender)
-        verificar()
+        If verificar() Then
+            Return
+        End If
+
 
         'Depois Joga O Bot
         If AI Then
             Dim t As Integer() = melhorJogada(tabuleiro_matriz)
-            tabuleiro_matriz_AI = tabuleiro_matriz
             novaPosicaoAI(t)
             verificar()
         End If
@@ -337,6 +312,8 @@
             Button9.Enabled = False
         End If
 
+        contagem += 1
+
     End Sub
 
     'EVALUATE
@@ -352,41 +329,40 @@
         'Check Rows
         For i = 0 To 2
             If (tabuleiro(i, 0) = jogador1 Or tabuleiro(i, 0) = jogador2) And tabuleiro(i, 0) = tabuleiro(i, 1) And tabuleiro(i, 0) = tabuleiro(i, 2) Then
-                If jogadorAtual = jogador2 Then
+                If tabuleiro(i, 0) = jogador2 Then
                     Return 10
-                Else
+                ElseIf tabuleiro(i, 0) = jogador1 Then
                     Return -10
                 End If
             End If
-            Continue For
         Next
 
         'Check Collumns
         For i = 0 To 2
             If (tabuleiro(0, i) = jogador1 Or tabuleiro(0, i) = jogador2) And tabuleiro(0, i) = tabuleiro(1, i) And tabuleiro(0, i) = tabuleiro(2, i) Then
-                Continue For
+                If tabuleiro(i, 0) = jogador2 Then
+                    Return 10
+                ElseIf tabuleiro(i, 0) = jogador1 Then
+                    Return -10
+                End If
             End If
-            If jogadorAtual = jogador2 Then
-                Return 10
-            Else
-                Return -10
-            End If
+
         Next
 
         'Check Diagonal
         If (tabuleiro(0, 0) = jogador1 Or tabuleiro(0, 0) = jogador2) And (tabuleiro(0, 0) = tabuleiro(1, 1)) And (tabuleiro(0, 0) = tabuleiro(2, 2)) Then
-            If jogadorAtual = jogador2 Then
+            If tabuleiro(0, 0) = jogador2 Then
                 Return 10
-            Else
+            ElseIf tabuleiro(0, 0) = jogador1 Then
                 Return -10
             End If
         End If
 
         'Check Secondary Diagonal
         If (tabuleiro(0, 2) = jogador1 Or tabuleiro(0, 2) = jogador2) And (tabuleiro(0, 2) = tabuleiro(1, 1)) And (tabuleiro(0, 2) = tabuleiro(2, 0)) Then
-            If jogadorAtual = jogador2 Then
+            If tabuleiro(0, 2) = jogador2 Then
                 Return 10
-            Else
+            ElseIf tabuleiro(0, 2) = jogador1 Then
                 Return -10
             End If
         End If
@@ -402,14 +378,13 @@
     ' Parametros:
     '           # tabuleiro : o tabuleiro num certo momento que ira ser verificado
     Private Function jogadasDisponiveis(tabuleiro As Array) As Boolean
-        Dim i As Integer
+        Dim i, j As Integer
         For i = 0 To 2
-            If tabuleiro(i, 0) <> jogador1 Or tabuleiro(i, 0) <> jogador2 Or
-               tabuleiro(i, 1) <> jogador1 Or tabuleiro(i, 1) <> jogador2 Or
-               tabuleiro(i, 2) <> jogador1 Or tabuleiro(i, 2) <> jogador2 Then
-
-                Return True
-            End If
+            For k = 0 To 2
+                If tabuleiro(i, j) <> jogador1 And tabuleiro(i, j) <> jogador2 Then
+                    Return True
+                End If
+            Next
         Next
         Return False
     End Function
@@ -432,11 +407,12 @@
         'Ganhou o Jogador,
         'Nao existem mais jogadas, Empatou
         If score = 10 Then
-            Return score
-        ElseIf score = -10 Then
-            Return score
-
-        ElseIf Not jogadasDisponiveis(tabuleiro) Then
+            Return score - depth
+        End If
+        If score = -10 Then
+            Return score + depth
+        End If
+        If jogadasDisponiveis(tabuleiro) = False Then
             Return 0
         End If
 
@@ -466,7 +442,7 @@
                         tabuleiro(i, j) = jogador1
                         best = Math.Min(best, minimax(tabuleiro, depth + 1, Not isMax))
 
-                        tabuleiro(i, j) = ""
+                        tabuleiro(i, j) = Nothing
                     End If
                 Next
             Next
@@ -484,8 +460,8 @@
 
 
         Dim bestVal = -1000
-        Dim bestMove(1) As Integer
-        Dim moveVal
+        Dim bestMove As Integer() = {-1, -1}
+        Dim moveVal As Integer
         Dim i, j As Integer
 
         For i = 0 To 2

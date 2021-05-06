@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property giphy() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("giphy", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property informações() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("informações", resourceCulture)
@@ -156,6 +166,36 @@ Namespace My.Resources
         Friend ReadOnly Property sobre_nos() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sobre_nos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property tictactoe() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("tictactoe", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Voltar() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Voltar", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property white_chicken() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("white_chicken", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
