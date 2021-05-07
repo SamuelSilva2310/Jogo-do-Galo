@@ -32,9 +32,9 @@ Partial Class Info
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-5, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(-5, -1)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(922, 649)
+        Me.PictureBox1.Size = New System.Drawing.Size(922, 654)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -44,9 +44,9 @@ Partial Class Info
         Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Location = New System.Drawing.Point(21, 591)
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 591)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(129, 44)
+        Me.PictureBox2.Size = New System.Drawing.Size(134, 44)
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
         '

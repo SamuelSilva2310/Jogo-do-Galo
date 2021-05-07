@@ -20,6 +20,10 @@
     End Sub
 
     Private Sub btninfo_Click(sender As Object, e As EventArgs) Handles btninfo.Click
+
+    End Sub
+
+    Private Sub btnsobre_Click(sender As Object, e As EventArgs) Handles btnsobre.Click
         Me.Hide()
         Info.Show()
     End Sub
