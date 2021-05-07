@@ -119,6 +119,7 @@ Partial Class Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(915, 647)
         Me.Controls.Add(Me.PictureBox1)

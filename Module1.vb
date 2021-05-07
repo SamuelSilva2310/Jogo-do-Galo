@@ -15,8 +15,8 @@
 Module Module1
     Public tabuleiro_matriz(2, 2) As String
 
-    Public jogador1 As String = "j1"
-    Public jogador2 As String = "j2"
+    Public jogador1 As String = "Jogador 1"
+    Public jogador2 As String = "Jogador 2"
     Public jogadorAtual As String = jogador1
     Public contagem As Integer = 0
     Public AI As Boolean

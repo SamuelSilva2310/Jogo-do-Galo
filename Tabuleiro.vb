@@ -22,7 +22,9 @@
             bt.Enabled = True
         Next
         jogadorAtual = jogador1
-        jgrAtual_lbl.Text = jogadorAtual
+        bordaJogador1.BackgroundImage = My.Resources.borda_light
+        bordaJogador2.BackgroundImage = My.Resources.borda
+
 
     End Sub
 
@@ -99,7 +101,7 @@
         '   Caso seja, o Jogador Ganha
         While i <= 2
             If (tabuleiro_matriz(i, 0) = jogador1 Or tabuleiro_matriz(i, 0) = jogador2) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 1)) And (tabuleiro_matriz(i, 0) = tabuleiro_matriz(i, 2)) Then
-                vencedorLbl.Text = jogadorAtual + " Venceu!"
+
                 ganhar()
                 Return True
             End If
@@ -114,7 +116,7 @@
         '   Caso seja, o Jogador Ganha
         While j <= 2
             If (tabuleiro_matriz(0, j) = jogador1 Or tabuleiro_matriz(0, j) = jogador2) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(1, j)) And (tabuleiro_matriz(0, j) = tabuleiro_matriz(2, j)) Then
-                vencedorLbl.Text = jogadorAtual + " Venceu!"
+
                 ganhar()
                 Return True
             End If
@@ -127,7 +129,7 @@
         'Verificar A diagonal Principal (da esquerda para a direita)
 
         If (tabuleiro_matriz(0, 0) = jogador1 Or tabuleiro_matriz(0, 0) = jogador2) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 0) = tabuleiro_matriz(2, 2)) Then
-            vencedorLbl.Text = jogadorAtual + " Venceu!"
+
             ganhar()
             Return True
         End If
@@ -138,7 +140,7 @@
         'Verificar A diagonal Secundaria (da esquerda para a direita)
 
         If (tabuleiro_matriz(0, 2) = jogador1 Or tabuleiro_matriz(0, 2) = jogador2) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(1, 1)) And (tabuleiro_matriz(0, 2) = tabuleiro_matriz(2, 0)) Then
-            vencedorLbl.Text = jogadorAtual + " Venceu!"
+
             ganhar()
             Return True
         End If
@@ -156,10 +158,14 @@
         'Mudar o Jogador Atual
         If (jogadorAtual = jogador1) Then
             jogadorAtual = jogador2
+            bordaJogador1.BackgroundImage = My.Resources.borda
+            bordaJogador2.BackgroundImage = My.Resources.borda_light
+
         Else
             jogadorAtual = jogador1
+            bordaJogador1.BackgroundImage = My.Resources.borda_light
+            bordaJogador2.BackgroundImage = My.Resources.borda
         End If
-        jgrAtual_lbl.Text = jogadorAtual
 
         Return False
     End Function
@@ -175,9 +181,9 @@
         Me.Hide()
 
         If jogadorAtual = jogador1 Then
-            Vitoria.player_lbl.Text = "Jogador 1"
+            Vitoria.vencedorImage.BackgroundImage = My.Resources.chicken_avatar
         Else
-            Vitoria.player_lbl.Text = "Jogador 2"
+            Vitoria.vencedorImage.BackgroundImage = My.Resources.egg_avatar
         End If
         resetJogo()
         Vitoria.Activate()
@@ -187,15 +193,8 @@
 
     Public Sub empate()
         Me.Hide()
-
-        If jogadorAtual = jogador1 Then
-            Vitoria.player_lbl.Text = "EMPATE"
-        Else
-            Vitoria.player_lbl.Text = "EMPATE"
-        End If
         resetJogo()
-        Vitoria.Activate()
-        Vitoria.Show()
+
 
     End Sub
 
@@ -204,17 +203,17 @@
     '--------------------------------------------------------------------------------------------------------------------------'
     'APENAS PARA O PROGRAMADOR'
     ' ESCREVE AS POSICOES DA MATRIZ PREENCHIDAS PARA AJUDAR NA VISUALIZACAO DA MATRIZ
-    Public Sub matriz()
-        testeLbl1.Text = tabuleiro_matriz(0, 0)
-        testeLbl2.Text = tabuleiro_matriz(0, 1)
-        testeLbl3.Text = tabuleiro_matriz(0, 2)
-        testeLbl4.Text = tabuleiro_matriz(1, 0)
-        testeLbl5.Text = tabuleiro_matriz(1, 1)
-        testeLbl6.Text = tabuleiro_matriz(1, 2)
-        testeLbl7.Text = tabuleiro_matriz(2, 0)
-        testeLbl8.Text = tabuleiro_matriz(2, 1)
-        testeLbl9.Text = tabuleiro_matriz(2, 2)
-    End Sub
+    'Public Sub matriz()
+    '    testeLbl1.Text = tabuleiro_matriz(0, 0)
+    '    testeLbl2.Text = tabuleiro_matriz(0, 1)
+    '    testeLbl3.Text = tabuleiro_matriz(0, 2)
+    '    testeLbl4.Text = tabuleiro_matriz(1, 0)
+    '    testeLbl5.Text = tabuleiro_matriz(1, 1)
+    '    testeLbl6.Text = tabuleiro_matriz(1, 2)
+    '    testeLbl7.Text = tabuleiro_matriz(2, 0)
+    '    testeLbl8.Text = tabuleiro_matriz(2, 1)
+    '    testeLbl9.Text = tabuleiro_matriz(2, 2)
+    ''End Sub
 
     '=========================================================================================================================='
 
@@ -246,17 +245,9 @@
         End If
 
 
-        matriz()
-
-
-    End Sub
-
-    '=========================================================================================================================='
 
 
 
-    Private Sub Tabuleiro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        jgrAtual_lbl.Text = jogadorAtual
     End Sub
 
     '=========================================================================================================================='
@@ -482,4 +473,15 @@
         Return bestMove
 
     End Function
+
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+        resetJogo()
+        Me.Hide()
+        Menu.Show()
+    End Sub
+
+    Private Sub Tabuleiro_Load(sender As Object, e As EventArgs) Handles Me.Load
+        bordaJogador1.BackgroundImage = My.Resources.borda_light
+        bordaJogador2.BackgroundImage = My.Resources.borda
+    End Sub
 End Class
