@@ -194,8 +194,7 @@
     Public Sub empate()
         Me.Hide()
         resetJogo()
-
-
+        EmpateForm.Show()
     End Sub
 
 

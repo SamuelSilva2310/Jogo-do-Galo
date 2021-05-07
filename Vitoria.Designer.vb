@@ -83,7 +83,7 @@ Partial Class Vitoria
         '
         'PictureBox3
         '
-        Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(222, Byte), Integer))
+        Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(237, Byte), Integer))
         Me.PictureBox3.BackgroundImage = CType(resources.GetObject("PictureBox3.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
@@ -95,7 +95,7 @@ Partial Class Vitoria
         '
         'vencedorImage
         '
-        Me.vencedorImage.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(222, Byte), Integer))
+        Me.vencedorImage.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(237, Byte), Integer))
         Me.vencedorImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.vencedorImage.Location = New System.Drawing.Point(152, 100)
         Me.vencedorImage.Name = "vencedorImage"
