@@ -4,6 +4,9 @@
     <Compile Update="Empate.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Instrucoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Info.vb">
       <SubType>Form</SubType>
     </Compile>

@@ -32,10 +32,10 @@ Partial Class Tabuleiro
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.jogador1Label = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.bordaJogador1 = New System.Windows.Forms.PictureBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.jogador2Label = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.bordaJogador2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -172,16 +172,17 @@ Partial Class Tabuleiro
         Me.Button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'Label1
+        'jogador1Label
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(41, 146)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 25)
-        Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Jogador 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.jogador1Label.AutoSize = True
+        Me.jogador1Label.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.jogador1Label.ForeColor = System.Drawing.Color.White
+        Me.jogador1Label.Location = New System.Drawing.Point(41, 146)
+        Me.jogador1Label.Name = "jogador1Label"
+        Me.jogador1Label.Size = New System.Drawing.Size(102, 25)
+        Me.jogador1Label.TabIndex = 29
+        Me.jogador1Label.Text = "Jogador 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.jogador1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
         '
@@ -203,16 +204,17 @@ Partial Class Tabuleiro
         Me.bordaJogador1.TabIndex = 30
         Me.bordaJogador1.TabStop = False
         '
-        'Label2
+        'jogador2Label
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(768, 146)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 25)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Jogador 2"
+        Me.jogador2Label.AutoSize = True
+        Me.jogador2Label.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.jogador2Label.ForeColor = System.Drawing.Color.White
+        Me.jogador2Label.Location = New System.Drawing.Point(768, 146)
+        Me.jogador2Label.Name = "jogador2Label"
+        Me.jogador2Label.Size = New System.Drawing.Size(102, 25)
+        Me.jogador2Label.TabIndex = 32
+        Me.jogador2Label.Text = "Jogador 2"
+        Me.jogador2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox3
         '
@@ -252,10 +254,10 @@ Partial Class Tabuleiro
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(108, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(134, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(915, 647)
         Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.jogador2Label)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.bordaJogador2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.jogador1Label)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button8)
@@ -288,10 +290,10 @@ Partial Class Tabuleiro
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents Button9 As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents jogador1Label As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents bordaJogador1 As PictureBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents jogador2Label As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents bordaJogador2 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox

@@ -24,6 +24,8 @@
         jogadorAtual = jogador1
         bordaJogador1.BackgroundImage = My.Resources.borda_light
         bordaJogador2.BackgroundImage = My.Resources.borda
+        jogador2Label.Text = "Jogador 2"
+        jogador2Label.Location = New Point(768, 146)
 
 
     End Sub
@@ -482,5 +484,6 @@
     Private Sub Tabuleiro_Load(sender As Object, e As EventArgs) Handles Me.Load
         bordaJogador1.BackgroundImage = My.Resources.borda_light
         bordaJogador2.BackgroundImage = My.Resources.borda
+
     End Sub
 End Class

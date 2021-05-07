@@ -21,3 +21,4 @@ D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Ga
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto Galo_Aderito_Samuel_Tiago Gomes.genruntimeconfig.cache
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.info.resources
 D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.EmpateForm.resources
+D:\Users\Samuel\Documents\Escola\Nuno Godinho - Estrutura de Dados\VB\Projeto Galo_Aderito_Samuel_Tiago Gomes\obj\Debug\net5.0-windows\Projeto_Galo_Aderito_Samuel_Tiago_Gomes.Instrucoes.resources
