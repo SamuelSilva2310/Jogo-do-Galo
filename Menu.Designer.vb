@@ -52,23 +52,25 @@ Partial Class Menu
         'btnsair
         '
         Me.btnsair.BackColor = System.Drawing.Color.Transparent
+        Me.btnsair.BackgroundImage = CType(resources.GetObject("btnsair.BackgroundImage"), System.Drawing.Image)
+        Me.btnsair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnsair.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnsair.Image = CType(resources.GetObject("btnsair.Image"), System.Drawing.Image)
-        Me.btnsair.Location = New System.Drawing.Point(47, 474)
+        Me.btnsair.Location = New System.Drawing.Point(47, 456)
         Me.btnsair.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnsair.Name = "btnsair"
-        Me.btnsair.Size = New System.Drawing.Size(200, 57)
+        Me.btnsair.Size = New System.Drawing.Size(173, 44)
         Me.btnsair.TabIndex = 4
         Me.btnsair.TabStop = False
         '
         'btnsobre
         '
+        Me.btnsobre.BackgroundImage = CType(resources.GetObject("btnsobre.BackgroundImage"), System.Drawing.Image)
+        Me.btnsobre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnsobre.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnsobre.Image = CType(resources.GetObject("btnsobre.Image"), System.Drawing.Image)
-        Me.btnsobre.Location = New System.Drawing.Point(47, 399)
+        Me.btnsobre.Location = New System.Drawing.Point(47, 387)
         Me.btnsobre.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnsobre.Name = "btnsobre"
-        Me.btnsobre.Size = New System.Drawing.Size(200, 57)
+        Me.btnsobre.Size = New System.Drawing.Size(173, 44)
         Me.btnsobre.TabIndex = 3
         Me.btnsobre.TabStop = False
         '
@@ -79,29 +81,31 @@ Partial Class Menu
         Me.btninfo.Location = New System.Drawing.Point(47, 324)
         Me.btninfo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btninfo.Name = "btninfo"
-        Me.btninfo.Size = New System.Drawing.Size(200, 57)
+        Me.btninfo.Size = New System.Drawing.Size(173, 44)
         Me.btninfo.TabIndex = 2
         Me.btninfo.TabStop = False
         '
         'btnai
         '
+        Me.btnai.BackgroundImage = CType(resources.GetObject("btnai.BackgroundImage"), System.Drawing.Image)
+        Me.btnai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnai.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnai.Image = CType(resources.GetObject("btnai.Image"), System.Drawing.Image)
         Me.btnai.Location = New System.Drawing.Point(47, 249)
         Me.btnai.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnai.Name = "btnai"
-        Me.btnai.Size = New System.Drawing.Size(200, 57)
+        Me.btnai.Size = New System.Drawing.Size(173, 44)
         Me.btnai.TabIndex = 1
         Me.btnai.TabStop = False
         '
         'btnplayer
         '
+        Me.btnplayer.BackgroundImage = CType(resources.GetObject("btnplayer.BackgroundImage"), System.Drawing.Image)
+        Me.btnplayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnplayer.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnplayer.Image = CType(resources.GetObject("btnplayer.Image"), System.Drawing.Image)
-        Me.btnplayer.Location = New System.Drawing.Point(47, 174)
+        Me.btnplayer.Location = New System.Drawing.Point(47, 182)
         Me.btnplayer.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnplayer.Name = "btnplayer"
-        Me.btnplayer.Size = New System.Drawing.Size(200, 57)
+        Me.btnplayer.Size = New System.Drawing.Size(173, 44)
         Me.btnplayer.TabIndex = 0
         Me.btnplayer.TabStop = False
         '
@@ -119,6 +123,7 @@ Partial Class Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(915, 647)
         Me.Controls.Add(Me.PictureBox1)
